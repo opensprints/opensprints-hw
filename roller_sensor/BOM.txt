@@ -1,0 +1,20 @@
+Qty	Descr					Mfr			Mfr P/N			Vendor		Vendor P/N	
+---	-------------------		-------		-----------		-------		------------
+1	hall effect switch		Allegro		A3245LUA-T		digikey		620-1213-ND
+1	RJ45 modular jack		tyco		5555164-1		digikey		5555164-1
+														mouser		571-5555164-1
+1	5mm Red or Blue LED									digikey		365-1180-ND
+1	330 ohm resistor
+	(for Red LED)
+	or
+	100 ohm resistor									digikey		100EBK-ND
+	(for Blue LED)
+1	1 uF bypass cap										digikey		478-3192-ND or 490-3810-ND
+2
+
+
+http://search.digikey.com/scripts/DkSearch/dksus.dll?Detail?name=620-1213-ND
+http://search.digikey.com/scripts/DkSearch/dksus.dll?Detail?name=A31442-ND
+http://search.digikey.com/scripts/DkSearch/dksus.dll?Detail?name=365-1180-ND
+http://search.digikey.com/scripts/DkSearch/dksus.dll?Detail?name=100EBK-ND
+http://search.digikey.com/scripts/DkSearch/dksus.dll?Detail?name=478-3192-ND
