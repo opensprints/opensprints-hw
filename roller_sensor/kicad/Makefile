@@ -1,31 +1,36 @@
-FILEBASE=roller_sensor
+VERSION  := $(shell cat VERSION)
+OUTDIR   = out
+FILEBASE = roller_sensor_$(VERSION)_gerber
+
+all: output_zip
+
+version:
+	@echo $(VERSION)
 
 gerber:
-	echo "Open PCBnew and plot the gerber files and generate the drill report."
+	mkdir -p $(OUTDIR)
+	@echo "Open PCBnew and plot the gerber files and generate the " \
+		"drill report, saving the files in the ${OUTDIR} directory."
+	@read -p "Press ENTER when done." foo
 
 output_tar: gerber
-	tar -jcvf ${FILEBASE}_output.tar.bz2 *.pho *.drl *-drl.rpt
+	cd $(OUTDIR) ; \
+	tar -jcvf ${FILEBASE}.tar.bz2 *.pho *.drl *-drl.rpt ; \
+	cd -
 
 output_zip: gerber
-	zip -r ${FILEBASE}_output.zip *.pho *.drl *-drl.rpt
+	cd $(OUTDIR) ; \
+	zip -r ${FILEBASE}.zip *.pho *.drl *-drl.rpt ; \
+	cd -
 
 output_barebones: gerber
-	zip -r ${FILEBASE}_barebones_output.zip \
+	cd $(OUTDIR) ; \
+	zip -r ${FILEBASE}_barebones.zip \
 			${FILEBASE}-Component.pho \
 			${FILEBASE}-Copper.pho \
 			${FILEBASE}-Edges_Pcb.pho \
-			${FILEBASE}.drl
+			${FILEBASE}.drl ; \
+	cd -
 
 clean:
-	rm -f *.bak
-	rm -f *.cache.dcm
-	rm -f *.cache.lib
-	rm -f *.bck
-	rm -f *.0??
-	rm -f ?savepcb.brd
-	rm -f *.rpt
-	rm -f *.pho
-	rm -f *.drl
-	rm -f *_output.zip
-	rm -f *_output_barebones.zip
-
+	rm -f $(OUTDIR)
